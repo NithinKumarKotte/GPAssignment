@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="cardColor">#48c7e1</color>
-    <color name="getColor">#ff990a</color>
-    <color name="postColor">#84ff00</color>
+    <color name="getColor">#ff7200</color>
+    <color name="postColor">#029ab2</color>
 </resources>
