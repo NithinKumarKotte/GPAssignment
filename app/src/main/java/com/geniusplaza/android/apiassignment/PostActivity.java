@@ -34,15 +34,19 @@ public class PostActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(name.getText()!=null && job.getText()!=null)
-                sendUserData(name.getText().toString(),job.getText().toString());
+                if(!(name.getText().toString().matches("") && job.getText().toString().matches(""))) {
+                    System.out.println(name.getText().toString());
+                    System.out.println(job.getText().toString());
+                    sendUserData(name.getText().toString(), job.getText().toString());
+                }else{
+                    Toast.makeText(PostActivity.this,"Please enter User Credentials",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
     }
 
     public void sendUserData(String name, String job){
-        StringBuilder sBuilder = new StringBuilder();
         final WebService webService = WebService.retrofit.create(WebService.class);
         Call<Users> newUser = webService.insertUser(name,job);
         newUser.enqueue(new Callback<Users>() {
@@ -50,8 +54,8 @@ public class PostActivity extends AppCompatActivity {
             public void onResponse(Call<Users> call, Response<Users> response) {
 
                 StringBuilder sBuilder = new StringBuilder();
-                sBuilder.append("User Created :"+"\n\n"+
-                        "Name :"+ response.body().getName()+"\n"+
+                sBuilder.append("User Created: "+"\n\n"+
+                        "Name: "+ response.body().getName()+"\n"+
                         "Job: "+response.body().getJob()+"\n"+
                         "Id: "+response.body().getId()+"\n"+
                         "createdAt: "+response.body().getCreatedAt());
@@ -74,7 +78,7 @@ public class PostActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Users> call, Throwable t) {
-
+                Toast.makeText(PostActivity.this,"Failed to create User",Toast.LENGTH_LONG).show();
             }
         });
     }

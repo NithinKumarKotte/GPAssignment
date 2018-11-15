@@ -6,4 +6,6 @@
     <color name="cardColor">#48c7e1</color>
     <color name="getColor">#ff7200</color>
     <color name="postColor">#029ab2</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 </resources>

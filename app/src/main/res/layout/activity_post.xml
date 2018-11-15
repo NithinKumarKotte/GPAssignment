@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name: "
+        android:textColor="@color/black"
         android:textSize="20sp"/>
 
     <EditText
@@ -23,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Job: "
+        android:textColor="@color/black"
         android:textSize="20sp"/>
 
     <EditText
@@ -34,7 +36,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/postColor"
         android:id="@+id/submit"
+        android:layout_gravity="center_horizontal"
         android:text="Submit"/>
 
 </LinearLayout>
