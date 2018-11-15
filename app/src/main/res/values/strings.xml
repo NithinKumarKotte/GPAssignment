@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">APIAssignment</string>
+    <string name="GET">GET USER</string>
+    <string name="POST">POST DATA</string>
+    <string name="fName">Firstname:</string>
+    <string name="lName">Lastname: </string>
+
 </resources>
