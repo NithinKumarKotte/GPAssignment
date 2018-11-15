@@ -55,16 +55,16 @@ public class GetActivity extends AppCompatActivity {
         callCount.enqueue(new Callback<Users>() {
             @Override
             public void onResponse(Call<Users> call, Response<Users> response) {
-                Log.i("hello world",String.valueOf(response.body().count));
+                Log.i("hello world", String.valueOf(response.body().count));
 
                 //number of pages
-                int count =  response.body().count;
+                int count = response.body().count;
 
                 //total number of users in all the pages
                 totalNumUsers = response.body().totalUsers;
-                for(int i=1;i<=count;i++){
+                for (int i = 1; i <= count; i++) {
                     Call<UserList> callPage = webService.userItems(i);
-                   sendRequest(callPage);
+                    sendRequest(callPage);
                 }
             }
 
@@ -82,17 +82,17 @@ public class GetActivity extends AppCompatActivity {
             public void onResponse(Call<UserList> call, Response<UserList> response) {
                 UserList dataItems = response.body();
 
-                Toast.makeText(GetActivity.this, "Received user details from service",
-                        Toast.LENGTH_SHORT).show();
-
-                for (Users users: dataItems.getUsers()) {
+                for (Users users : dataItems.getUsers()) {
                     System.out.println(users.getFirstName());
 
                     //Arraylist to store all the users
                     listOfUsers.add(users);
                 }
 
-                if(listOfUsers.size()==totalNumUsers){
+                if (listOfUsers.size() == totalNumUsers) {
+
+                    Toast.makeText(GetActivity.this, "Received user details from service",
+                            Toast.LENGTH_SHORT).show();
                     displayData();
                 }
             }
@@ -110,8 +110,8 @@ public class GetActivity extends AppCompatActivity {
 
     private void displayData() {
         if (listOfUsers != null) {
-                userAdapter = new UserAdapter(this, listOfUsers);
-                recyclerView.setAdapter(userAdapter);
+            userAdapter = new UserAdapter(this, listOfUsers);
+            recyclerView.setAdapter(userAdapter);
         }
     }
 }
