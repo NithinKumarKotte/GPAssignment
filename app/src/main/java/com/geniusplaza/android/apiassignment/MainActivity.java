@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView getApi;
-    TextView postApi;
+    Button getApi;
+    Button postApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

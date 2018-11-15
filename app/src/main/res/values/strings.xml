@@ -2,7 +2,7 @@
     <string name="app_name">APIAssignment</string>
     <string name="GET">GET USER</string>
     <string name="POST">POST DATA</string>
-    <string name="fName">Firstname:</string>
-    <string name="lName">Lastname: </string>
+    <string name="fName">Firstname: \u0020</string>
+    <string name="lName">Lastname: \u0020 </string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.geniusplaza.android.apiassignment;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,13 +42,34 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void sendUserData(String name, String job){
+        StringBuilder sBuilder = new StringBuilder();
         final WebService webService = WebService.retrofit.create(WebService.class);
         Call<Users> newUser = webService.insertUser(name,job);
         newUser.enqueue(new Callback<Users>() {
             @Override
             public void onResponse(Call<Users> call, Response<Users> response) {
-                String msg = response.body().getName();
-                Toast.makeText(PostActivity.this, msg,Toast.LENGTH_LONG).show();
+
+                StringBuilder sBuilder = new StringBuilder();
+                sBuilder.append("User Created :"+"\n\n"+
+                        "Name :"+ response.body().getName()+"\n"+
+                        "Job: "+response.body().getJob()+"\n"+
+                        "Id: "+response.body().getId()+"\n"+
+                        "createdAt: "+response.body().getCreatedAt());
+
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(PostActivity.this);
+                alertBuilder.setMessage(sBuilder);
+                alertBuilder.setCancelable(true);
+
+                alertBuilder.setPositiveButton(
+                        "Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert = alertBuilder.create();
+                alert.show();
             }
 
             @Override

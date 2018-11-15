@@ -65,9 +65,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         public View mView;
         public ViewHolder(View itemView) {
             super(itemView);
-            firstName = (TextView) itemView.findViewById(R.id.firstNameText);
-            lastName = (TextView) itemView.findViewById(R.id.lastNameText);
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            firstName = itemView.findViewById(R.id.firstNameText);
+            lastName =  itemView.findViewById(R.id.lastNameText);
+            imageView = itemView.findViewById(R.id.imageView);
             mView = itemView;
         }
     }

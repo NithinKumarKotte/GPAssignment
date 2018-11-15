@@ -24,7 +24,16 @@ public class Users implements Serializable {
     private String name;
     @SerializedName("job")
     private String job;
+    @SerializedName("createdAt")
+    private String createdAt;
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public String getName() {
         return name;

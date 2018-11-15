@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/getAPI"
@@ -18,7 +18,7 @@
         android:textSize="20sp"
         android:layout_weight="1"/>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/postAPI"
