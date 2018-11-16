@@ -16,6 +16,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+* Activity to handle POST operation*/
 public class PostActivity extends AppCompatActivity {
 
     EditText name;
@@ -46,8 +48,13 @@ public class PostActivity extends AppCompatActivity {
 
     }
 
+    /*
+    * To perform POST operation
+    * */
     public void sendUserData(String name, String job){
         final WebService webService = WebService.retrofit.create(WebService.class);
+
+        //insertUser Method is implemented to perform Call operation
         Call<Users> newUser = webService.insertUser(name,job);
         newUser.enqueue(new Callback<Users>() {
             @Override
@@ -59,6 +66,8 @@ public class PostActivity extends AppCompatActivity {
                         "Job: "+response.body().getJob()+"\n"+
                         "Id: "+response.body().getId()+"\n"+
                         "createdAt: "+response.body().getCreatedAt());
+
+                //Data represented on Alert Dialog Box
 
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(PostActivity.this);
                 alertBuilder.setMessage(sBuilder);

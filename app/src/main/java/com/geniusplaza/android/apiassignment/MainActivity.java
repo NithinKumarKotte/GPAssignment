@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/*
+* Main Activity to perform either GET operation or POST operation  */
 public class MainActivity extends AppCompatActivity {
     Button getApi;
     Button postApi;

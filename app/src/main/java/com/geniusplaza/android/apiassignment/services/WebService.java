@@ -31,10 +31,9 @@ public interface WebService {
     @GET("api/users/")
     Call<UserList> userItems(@Query("page") int pageNumber);
 
+    //Abstract mathod to perform POST operation by passing User credentials i.e. name and job details
     @FormUrlEncoded
     @POST("/api/users/")
-    Call<Users> insertUser(
-            @Field("name") String name,
-            @Field("job") String job);
+    Call<Users> insertUser(@Field("name") String name, @Field("job") String job);
 
 }
